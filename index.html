@@ -1,0 +1,60 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" href="download.png" type="icon">
+    <link rel="stylesheet" href="style.css">
+    <title>search engine</title>
+</head>
+
+<body>
+    <div class="cont">
+        <div class="link">
+            <a href="https://www.gmail.com" style="padding: 15px;">Email</a>
+            <a href="https://www.youtube.com">YouTube</a>
+        </div>
+        <img src="user.png" class="user">
+    </div>
+
+<!-- done -->
+
+    <div class="container">
+        <img src="google.png" class="google">
+        <video autoplay loop muted play-inline>
+            <source src="video2.mp4">
+        </video>
+        <form action="https://www.google.com/search" method="get" class="search-box">
+            <i class="fa fa-search" style="font-size:24px;color:white" id="search-box"></i>
+            <input type="text" name='q' placeholder="search anything..." id="speechtotext">
+            <i class="fa fa-microphone" style="font-size:20px;color:white;cursor: pointer;" onclick="voice()"></i>
+        </form>
+    </div>
+
+    <div class="anything">
+        <a href="https://www.gmail.com"><i class="fa fa-envelope"></i></a>
+        <a href="https://www.youtube.com"><i class="fa fa-youtube-play"></i></a>
+        <a href="https://www.amazon.com"><i class="fa fa-amazon"></i></a>
+        <a href="https://www.facebook.com"><i class="fa fa-facebook-square"></i></a>
+        <a href="https://www.instagram.com"><i class="fa fa-instagram"></i></a>
+        <a href="https://www.linkedin.com"><i class="fa fa-linkedin"></i></a>
+        <a href="https://www.github.com"><i class="fa fa-github"></i></a>
+        <a href="https://www.twitter.com"><i class="fa fa-twitter"></i></a>
+    </div>
+
+    <script>
+        function voice(){
+            var recognition = new webkitSpeechRecognition();
+            recognition.lang="en-GB";
+            recognition.onresult= function(event){
+                console.log(event);
+                document.getElementById("speechtotext").value = event.results[0][0].transcript;
+            }
+            recognition.start();
+        }
+    </script>
+</body>
+
+</html>
